@@ -1,64 +1,42 @@
-# print("Day 1")
-# the_file = open("um-deliveries-day-1.txt")
-# for line in the_file:
-#     line = line.rstrip()
-#     words = line.split('|')
 
-#     melon = words[0]
-#     count = words[0]
-#     amount = words[0]
+#Creating a function to take a file and display a summary of inventory
+def delivery_summary(file_name):
+    """Retrieve a summary of inventory from a file.
 
-#     print(f"Delivered {count} {melon}s for total of ${amount}")
-# the_file.close()
+    Arguments:
+        - file_name (str): File name in format of um-deliveries-day-<day number>.txt
 
-
-# print("Day 2")
-# the_file = open("um-deliveries-day-2.txt")
-# for line in the_file:
-#     line = line.rstrip()
-#     words = line.split('|')
-
-#     melon = words[0]
-#     count = words[0]
-#     amount = words[0]
-
-#     print(f"Delivered {count} {melon}s for total of ${amount}")
-# the_file.close()
+    Return:
+        - (str) Summary of produce inventory
+        - File for report
+    """
 
 
-# print("Day 3")
-# the_file = open("um-deliveries-day-3.txt")
-# for line in the_file:
-#     line = line.rstrip()
-#     words = line.split('|')
-
-#     melon = words[0]
-#     count = words[0]
-#     amount = words[0]
-
-#     print(f"Delivered {count} {melon}s for total of ${amount}")
-# the_file.close()
-
-def produce_summary(file_name):
-
+    #Opening file with data
     the_file = open(file_name)
 
+    #Retreiving the day number from file name and displaying
     day = file_name.split('-')
     day = (day[-1].split('.'))[0]
 
     print(f"Day {day}")
 
+    #reading each line in file
     for line in the_file:
+        #Removing whitespace and spereating each line by delimiter |
         line = line.rstrip()
         words = line.split('|')
 
+        #Assigning each part of the line to a varibale to be use later in output
         melon_name = words[0]
         amount_melon = words[1]
         total_cost_melon = words[2]
 
+        #Displays string of each line with variables values
         print(f"Delivered {amount_melon} {melon_name}s for a total of ${total_cost_melon}")
 
+    #Closing file
     the_file.close()
 
-produce_summary("um-deliveries-day-2.txt")
+
 
